@@ -34,15 +34,17 @@ export default function List(props) {
           </li>
         ))}
       </ul>
-      <When condition={pageNumbers > 1 && settings.pageNumber !== pageNumbers - 1 }>
-        <button onClick={() => {settings.setPageNumber(settings.pageNumber + 1)}}>Next</button>
-      </When>
-      <When condition={settings.pageNumber > 0}>
-        <button onClick={() => {settings.setPageNumber(settings.pageNumber - 1)}}>Previous</button>
-      </When>
-      <When condition={pageNumbers > 0}>
-        <span>Page {settings.pageNumber + 1}/{pageNumbers}</span>
-      </When>
+      <div className="pageNumbers">
+        <When condition={settings.pageNumber > 0}>
+          <button className="previousBtn" onClick={() => {settings.setPageNumber(settings.pageNumber - 1)}}>Previous</button>
+        </When>
+        <When condition={pageNumbers > 0}>
+            <span>Page {settings.pageNumber + 1}/{pageNumbers}</span>
+        </When>
+        <When condition={pageNumbers > 1 && settings.pageNumber !== pageNumbers - 1 }>
+          <button className="nextBtn" onClick={() => {settings.setPageNumber(settings.pageNumber + 1)}}>Next</button>
+        </When>
+      </div>
 
     </div>
   )

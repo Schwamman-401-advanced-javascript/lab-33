@@ -7,11 +7,17 @@ class SettingsProvider extends React.Component {
     super(props);
     this.state = {
       numItems: 10,
-      displayCompleted: false,
+      displayCompleted: true,
+      toggleDisplayCompleted: this.toggleDisplayCompleted,
       setNumItems: this.setNumItems,
       pageNumber: 0,
       setPageNumber: this.setPageNumber,
     }
+  }
+
+  toggleDisplayCompleted = () => {
+    this.setState({displayCompleted: !this.state.displayCompleted});
+    console.log(this.state.displayCompleted);
   }
 
   setNumItems = (num) => {

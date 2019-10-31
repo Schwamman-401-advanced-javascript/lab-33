@@ -68,6 +68,10 @@ export default function Form(props) {
           <span>Num of Items to Display: {settings.numItems}</span>
           <input type="range" min="3" max="20" name="listItems" defaultValue={settings.numItems} onChange={changeContext} />
         </label>
+        <label>
+          <span>Show Completed:</span>
+          <input type="checkbox" onChange={settings.toggleDisplayCompleted}></input>
+        </label>
       </form>
     </div>
   )
